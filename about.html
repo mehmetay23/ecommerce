@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - E-Ticaret Mağazası</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-section {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopStore</div>
+            <div class="nav-items">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="products.html">Ürünler</a>
+                <a href="about.html" class="active">Hakkımızda</a>
+                <a href="contact.html">İletişim</a>
+            </div>
+            <div class="user-actions">
+                <button id="loginBtn" class="auth-btn">Giriş Yap</button>
+                <button id="registerBtn" class="auth-btn">Kayıt Ol</button>
+                <div class="cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h2>Hakkımızda</h2>
+            <p>ShopStore olarak, 2020 yılından bu yana müşterilerimize en kaliteli ürünleri en uygun fiyatlarla sunmaya devam ediyoruz. Müşteri memnuniyetini her zaman ön planda tutarak, güvenilir alışveriş deneyimi sağlamayı hedefliyoruz.</p>
+            
+            <p>Vizyonumuz, Türkiye'nin en güvenilir ve tercih edilen e-ticaret platformu olmaktır. Misyonumuz ise müşterilerimize kaliteli ürünleri uygun fiyatlarla sunarak, alışveriş deneyimlerini en üst seviyeye çıkarmaktır.</p>
+
+            <h2>Değerlerimiz</h2>
+            <ul>
+                <li>Müşteri memnuniyeti odaklı hizmet</li>
+                <li>Güvenilir alışveriş deneyimi</li>
+                <li>Kaliteli ürün garantisi</li>
+                <li>Hızlı teslimat</li>
+                <li>7/24 müşteri desteği</li>
+            </ul>
+
+            <h2>Ekibimiz</h2>
+            <div class="team-section">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Ahmet Yılmaz">
+                    <h3>Ahmet Yılmaz</h3>
+                    <p>Genel Müdür</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Ayşe Demir">
+                    <h3>Ayşe Demir</h3>
+                    <p>Müşteri İlişkileri Müdürü</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Mehmet Kaya">
+                    <h3>Mehmet Kaya</h3>
+                    <p>Operasyon Müdürü</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modallar -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Giriş Yap</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-posta</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Şifre</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Kayıt Ol</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Ad Soyad</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">E-posta</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Şifre</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Şifre Tekrar</label>
+                    <input type="password" id="registerPasswordConfirm" required>
+                </div>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h3>Sepetim</h3>
+            <div class="cart-items" id="cartItems">
+                <!-- Sepet öğeleri JavaScript ile eklenecek -->
+            </div>
+            <div class="cart-total">
+                <span>Toplam:</span>
+                <span id="cartTotal">0 TL</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Ödeme Yap</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Ticaret Mağazası. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

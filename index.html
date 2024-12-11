@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret Mağazası</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopStore</div>
+            <div class="nav-items">
+                <a href="index.html" class="active">Ana Sayfa</a>
+                <a href="products.html">Ürünler</a>
+                <a href="about.html">Hakkımızda</a>
+                <a href="contact.html">İletişim</a>
+                <button id="orderTrackingBtn" class="track-btn">Sipariş Takibi</button>
+            </div>
+            <div class="user-actions">
+                <button id="loginBtn" class="auth-btn">Giriş Yap</button>
+                <button id="registerBtn" class="auth-btn">Kayıt Ol</button>
+                <div class="cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Hoş Geldiniz</h1>
+            <p>En kaliteli ürünler, en uygun fiyatlarla</p>
+        </section>
+
+        <section class="filters">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Ürün ara...">
+            </div>
+            <div class="filter-options">
+                <select id="categoryFilter">
+                    <option value="">Tüm Kategoriler</option>
+                    <option value="elektronik">Elektronik</option>
+                    <option value="giyim">Giyim</option>
+                    <option value="aksesuar">Aksesuar</option>
+                </select>
+                <select id="priceSort">
+                    <option value="">Fiyata Göre Sırala</option>
+                    <option value="asc">Artan Fiyat</option>
+                    <option value="desc">Azalan Fiyat</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="products">
+            <h2>Ürünlerimiz</h2>
+            <div class="product-grid" id="productList">
+                <!-- Ürünler JavaScript ile eklenecek -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Sipariş Takip Modal -->
+    <div class="modal" id="orderTrackingModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Sipariş Takibi</h2>
+            <form id="orderTrackingForm">
+                <div class="form-group">
+                    <label for="trackingNumber">Sipariş Takip Numarası</label>
+                    <input type="text" id="trackingNumber" placeholder="TR123456789" required>
+                </div>
+                <button type="submit" class="submit-btn">Siparişi Sorgula</button>
+            </form>
+            <div id="trackingResult" class="tracking-result" style="display: none;">
+                <h3>Sipariş Durumu</h3>
+                <div class="tracking-details">
+                    <p><strong>Sipariş Durumu:</strong> <span id="orderStatus"></span></p>
+                    <p><strong>Kargo Firması:</strong> <span id="carrierName"></span></p>
+                    <p><strong>Konum:</strong> <span id="location"></span></p>
+                    <p><strong>Tahmini Teslimat:</strong> <span id="estimatedDelivery"></span></p>
+                    <p><strong>Son Güncelleme:</strong> <span id="lastUpdate"></span></p>
+                    <p><strong>Notlar:</strong> <span id="trackingNotes"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Giriş Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Giriş Yap</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-posta</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Şifre</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Kayıt Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Kayıt Ol</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Ad Soyad</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">E-posta</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Şifre</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Şifre Tekrar</label>
+                    <input type="password" id="registerPasswordConfirm" required>
+                </div>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sepet Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h3>Sepetim</h3>
+            <div class="cart-items" id="cartItems">
+                <!-- Sepet öğeleri JavaScript ile eklenecek -->
+            </div>
+            <div class="cart-total">
+                <span>Toplam:</span>
+                <span id="cartTotal">0 TL</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Ödeme Yap</button>
+        </div>
+    </div>
+
+    <!-- Ödeme Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Ödeme Bilgileri</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="cardName">Kart Üzerindeki İsim</label>
+                    <input type="text" id="cardName" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Kart Numarası</label>
+                    <input type="text" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cardExpiry">Son Kullanma Tarihi</label>
+                        <input type="text" id="cardExpiry" maxlength="5" placeholder="AA/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardCVC">CVC</label>
+                        <input type="text" id="cardCVC" maxlength="3" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Teslimat Adresi</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Ödemeyi Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Ticaret Mağazası. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - E-Ticaret Mağazası</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopStore</div>
+            <div class="nav-items">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="products.html" class="active">Ürünler</a>
+                <a href="about.html">Hakkımızda</a>
+                <a href="contact.html">İletişim</a>
+            </div>
+            <div class="user-actions">
+                <button id="loginBtn" class="auth-btn">Giriş Yap</button>
+                <button id="registerBtn" class="auth-btn">Kayıt Ol</button>
+                <div class="cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Ürün ara...">
+            </div>
+            <div class="filter-options">
+                <select id="categoryFilter">
+                    <option value="">Tüm Kategoriler</option>
+                    <option value="elektronik">Elektronik</option>
+                    <option value="giyim">Giyim</option>
+                    <option value="aksesuar">Aksesuar</option>
+                </select>
+                <select id="priceSort">
+                    <option value="">Fiyata Göre Sırala</option>
+                    <option value="asc">Artan Fiyat</option>
+                    <option value="desc">Azalan Fiyat</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="products">
+            <h2>Tüm Ürünler</h2>
+            <div class="product-grid" id="productList">
+                <!-- Ürünler JavaScript ile eklenecek -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modallar -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Giriş Yap</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-posta</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Şifre</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Kayıt Ol</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Ad Soyad</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">E-posta</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Şifre</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Şifre Tekrar</label>
+                    <input type="password" id="registerPasswordConfirm" required>
+                </div>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h3>Sepetim</h3>
+            <div class="cart-items" id="cartItems">
+                <!-- Sepet öğeleri JavaScript ile eklenecek -->
+            </div>
+            <div class="cart-total">
+                <span>Toplam:</span>
+                <span id="cartTotal">0 TL</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Ödeme Yap</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Ticaret Mağazası. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
